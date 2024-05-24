@@ -1,4 +1,4 @@
-![](PostgreSQL-Playground.webp)
+![](./PostgreSQL-playground.jpg)
 
 # PostgreSQL Playground
 
@@ -8,19 +8,19 @@ The pursue to find a quick docker-compose.yml that would allow me to run "docker
 
 Relevant information for each custom file provided:
 
-[Docker Compose](./docker-compose.yml): 
-1. Uses the latest postgres image available
-2. Set the container memory to 1G 
-3. Set postgres user , password and database to "postgres"
-4. Listens on 15432 outside of the container
+1. [Docker Compose](./docker-compose.yml): 
+    - Uses the latest postgres image available
+    - Set the container memory to 1G 
+    - Set postgres user , password and database to "postgres"
+    - Listens on 15432 outside of the container
 
-[pg_hba.conf](./pg_hba.conf):
-1. Added extra line to accept connections from outside of the container
+2. [pg_hba.conf](./pg_hba.conf):
+    - Added extra line to accept connections from outside of the container
 
-[PostgreSQL config](./postgresql.conf): 
-1. Increased shared_buffers to 128MB
-2. Changed listen_address to all
-3. Log all database statements
+3. [PostgreSQL config](./postgresql.conf): 
+    - Increased shared_buffers to 128MB
+    - Changed listen_address to all
+    - Log all database statements
 
 ### Note:
 The database will initiate with a table called user_ which looks like a User information table from a Production application with hopes to allow to simulate real case scenarios.
