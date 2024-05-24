@@ -12,7 +12,7 @@ Relevant information for each custom file provided:
     - Uses the latest postgres image available
     - Set the container memory to 1G 
     - Set postgres user , password and database to "postgres"
-    - Listens on 15432 outside of the container
+    - DB listening on 15432 outside of the container
 
 2. [pg_hba.conf](./pg_hba.conf):
     - Added extra line to accept connections from outside of the container
