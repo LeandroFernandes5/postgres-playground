@@ -1,0 +1,24 @@
+version: '4'
+
+services:
+  db:
+    image: postgres:latest
+    shm_size: 1g
+    command: -c config_file=/etc/postgresql.conf
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres 
+      POSTGRES_DB: postgres 
+    ports:
+      - 15432:5432
+    build: ./postgres
+    volumes:
+      - ./db-data:/var/lib/postgresql/data/
+      - ./db-init-scripts:/docker-entrypoint-initdb.d
+      - ./postgresql.conf:/etc/postgresql.conf
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+
+networks: 
+  postgres-network:
+    driver: bridge
