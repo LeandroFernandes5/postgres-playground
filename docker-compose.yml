@@ -1,4 +1,4 @@
-version: '4'
+version: '5'
 
 services:
   db:
@@ -16,8 +16,8 @@ services:
     volumes:
       - ./db-data:/var/lib/postgresql/data/
       - ./db-init-scripts:/docker-entrypoint-initdb.d
-      - ./postgresql.conf:/etc/postgresql.conf
-      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+      - ./db-config/postgresql.conf:/etc/postgresql.conf
+      - ./db-config/pg_hba.conf:/etc/postgresql/pg_hba.conf
 
 networks: 
   postgres-network:

@@ -1,4 +1,4 @@
-![](./PostgreSQL-playground.jpg)
+![](./img/PostgreSQL-playground.jpg)
 
 # PostgreSQL Playground
 
@@ -14,10 +14,10 @@ Relevant information for each custom file provided:
     - Set postgres user , password and database to "postgres"
     - DB listening on 15432 outside of the container
 
-2. [pg_hba.conf](./pg_hba.conf):
+2. [pg_hba.conf](./db-config/pg_hba.conf):
     - Added extra line to accept connections from outside of the container
 
-3. [PostgreSQL config](./postgresql.conf): 
+3. [PostgreSQL config](./db-config/postgresql.conf): 
     - Increased shared_buffers to 128MB
     - Changed listen_address to all
     - Log all database statements
@@ -28,8 +28,8 @@ The database will initiate with a table called user_ which looks like a User inf
 At this point, our setup was ready we just needed to have data in our table. At this point we decided to create a Python script and use the Faker library to generate some random and usable data. 
 
 
-A [requirements file](./requirements.txt) with Psycopg3 and Faker.
-A [python script](./populate-db.py) that can be used to load whatever amount of records we fill necessary to test our scenario. 
+A [requirements file](./load-db/requirements.txt) with Psycopg3 and Faker.
+A [python script](./load-db/populate-db.py) that can be used to load whatever amount of records we fill necessary to test our scenario. 
  
 ### How to Populate PostgreSQL Database 
 
@@ -45,10 +45,10 @@ source venv/bin/active
 
 3. Install dependencies
 ```bash 
-pip install -r requirements.txt
+pip install -r load-db/requirements.txt
 ```
 
 4. Run populate script 
 ```bash
-python populate-db.py
+python load-db/populate-db.py
 ```
