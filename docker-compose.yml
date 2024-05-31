@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres:latest
+    container_name: pg16
     shm_size: 1g
     command: -c config_file=/etc/postgresql.conf
     restart: always
